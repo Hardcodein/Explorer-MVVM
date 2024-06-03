@@ -1,0 +1,14 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Windows;
+global  using System.Windows.Controls;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using System.Collections.ObjectModel;
+global using File = TestWorkExercise.Models.File;
+global using System.IO;
+global using TestWorkExercise.Controls.ViewModelsControl;
+global using TestWorkExercise.FilesObject;
+global using TestWorkExercise.Services;
+global using Shell32;
+global using System.Diagnostics;
