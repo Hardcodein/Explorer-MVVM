@@ -1,21 +1,7 @@
-﻿
+﻿namespace TestWorkExercise.Models;
 
-namespace TestWorkExercise.Models;
+internal class Directory : DataUnitBase
+{ 
+    public List<File>? Files { get; set; } 
 
-public class Directory
-{
-    public Directory()
-    {
-        
-    }
-
-    public string? NameDirectory { get; set; }
-    
-    public List<File>? Files { get; set; }
-
-    //private  List<File> SetCollection(string name)
-    //{
-
-        
-    //}
 }

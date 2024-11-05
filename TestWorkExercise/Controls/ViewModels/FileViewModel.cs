@@ -1,24 +1,18 @@
-﻿
-namespace TestWorkExercise.Controls.ViewModelsControl;
+﻿namespace TestWorkExercise.Controls.ViewModels;
 
-public partial class FilePropertyBlockViewModel : ObservableObject
+internal partial class FileViewModel : BaseViewModel
 {   
 
     [ObservableProperty]
     private string? _name;
-
     [ObservableProperty]
     private string? _extension;
-
     [ObservableProperty]
-    private float _size;
-
-    
-    public FilePropertyBlockViewModel(File file)
+    private float _size; 
+    public FileViewModel(File file)
     {
         Name = file.Name;
         Extension = file.Extension;
         Size = file.Size;
-        
     }
 }

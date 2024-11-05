@@ -3,9 +3,21 @@
                     >
                     
     <Thickness x:Key="BaseMargin">5</Thickness>
+    
     <Style x:Key="TransparentButton" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
         <Setter  Property="Margin" Value="5"/>
     </Style>
-   
+    
+    <Style x:Key="FileColor" TargetType="ListBoxItem">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Type}" Value="File">
+                <Setter Property="TextBlock.Foreground" Value="Green"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Type}" Value="Directory">
+                <Setter Property="TextBlock.Foreground" Value="Blue"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
 
 </ResourceDictionary>

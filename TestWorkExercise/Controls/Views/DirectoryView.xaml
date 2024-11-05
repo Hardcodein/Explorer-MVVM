@@ -1,17 +1,16 @@
-﻿<UserControl x:Class="TestWorkExercise.Controls.ViewControls.DirectoryPropertyBlockView"
+﻿<UserControl x:Class="TestWorkExercise.Controls.Views.DirectoryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TestWorkExercise.Controls.ViewControls"
+             xmlns:local="clr-namespace:TestWorkExercise.Controls.Views"
              mc:Ignorable="d" 
-             xmlns:vm ="clr-namespace:TestWorkExercise.Controls.ViewModelsControl"
-             d:DataContext="{d:DesignInstance vm:DirectoryPropertyBlockViewModel}"
-             
+             xmlns:vm ="clr-namespace:TestWorkExercise.Controls.ViewModels"
+             d:DataContext="{d:DesignInstance vm:DirectoryViewModel}"             
              >
     <Grid>
-        <ListBox ItemsSource="{Binding FilesAndDirectories  }">
-         <ListBox.ItemTemplate >
+        <ListBox ItemsSource="{Binding FilesAndDirectories}">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding  Name }"/>
                 </DataTemplate>

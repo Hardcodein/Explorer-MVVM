@@ -1,13 +1,11 @@
-﻿
-
-namespace TestWorkExercise.Controls.ViewControls;
+﻿namespace TestWorkExercise.Controls.Views;
 
 /// <summary>
 /// Логика взаимодействия для DirectoryPropertyBlock.xaml
 /// </summary>
-public partial class DirectoryPropertyBlockView : UserControl
+public partial class DirectoryView : UserControl
 {
-    public DirectoryPropertyBlockView()
+    public DirectoryView()
     {
         InitializeComponent();
     }

@@ -1,13 +1,11 @@
-﻿
-
-namespace TestWorkExercise.Views;
+﻿namespace TestWorkExercise.Views;
 
 /// <summary>
 /// Логика взаимодействия для MainWindowApp.xaml
 /// </summary>
-public partial class MainWindowApp : Window
+public partial class MainWindow : Window
 {
-    public MainWindowApp()
+    public MainWindow()
     {
         InitializeComponent();
         

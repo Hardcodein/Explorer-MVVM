@@ -1,7 +1,6 @@
-﻿
-namespace TestWorkExercise.ViewModels;
+﻿namespace TestWorkExercise.ViewModels;
 
-public partial class MainViewModel : ObservableObject
+internal partial class MainViewModel : BaseViewModel
 {
     [ObservableProperty]
     private string? filePath;
@@ -10,36 +9,33 @@ public partial class MainViewModel : ObservableObject
     private File? selectedFile;
 
     [ObservableProperty]
-    private object? selectedViewModel;
-
-    [ObservableProperty]
-    public ObservableCollection<File>? filesAndDirectories;
-    public MainViewModel()
-    { 
-    }
+    private BaseViewModel? selectedViewModel;
+   
 
     [RelayCommand]
-    public void SelectionChanged(File file)
+    internal void SelectionChanged(File file)
     {
-        if (file.IsFile)
-            SelectedViewModel = new FilePropertyBlockViewModel(file);
-        if (file.IsDirectory)
-            SelectedViewModel = new DirectoryPropertyBlockViewModel(file);
+        SelectedViewModel = file.Type switch
+        {
+            DataTypes.File => new FileViewModel(file),
+            DataTypes.Directory => new DirectoryViewModel(file),
+            _ => throw new InvalidOperationException("Не работает"),
+        };
     }
 
     [RelayCommand]
     public void FilePathChanged(string filePath)
     {
         FilePath = filePath;
-        FilesAndDirectories = new ObservableCollection<File>(GetterFiles.NavigateToPath(FilePath!));
+        var getterAllData = new GetterAllData();
+        FilesAndDirectories = new ObservableCollection<File>(getterAllData.GetAllDataInDirectory(filePath));
     }
+
+
     [RelayCommand]
-    public void OpenFile(File file)
+    internal void OpenFile(File file)
     {
         if (Constants.AllowedFilesToOpen.Contains(file.Extension!))
-        {
             Process.Start("notepad.exe", file!.Path!);
-        }
-
     }
 }
